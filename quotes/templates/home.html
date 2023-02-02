@@ -1,0 +1,104 @@
+{% extends 'base.html'%}
+<style>
+	.footer
+</style>
+{% block content %}
+{% load static %}
+
+<div class=div style="background-color:#cfc9c0">
+  <img  class= "pt-4 pt-4" src="static/images/homepage.png" width="80%" height=450px>
+</div>  
+
+<div class="p-4" style="background-color:#cfc9c0">
+  <div class="row">
+    <div class="col-sm">
+     <div class="ratio ratio-16x9">
+  <iframe
+    src="https://www.youtube.com/embed/A7fZp9dwELo" 
+    title="YouTube video"
+    allowfullscreen
+  ></iframe>
+</div>
+    </div>
+
+<!-- YOUTUBE -->
+    <div class="col-sm">
+     <div class="ratio ratio-16x9">
+  <iframe
+    src="https://www.youtube.com/embed/3UF0ymVdYLA"
+    title="YouTube video"
+    allowfullscreen
+  ></iframe>
+</div>
+    </div>
+    <div class="col-sm">
+     <div class="ratio ratio-16x9">
+  <iframe
+    src="https://www.youtube.com/embed/pwxXMK3YEDI"
+    title="YouTube video"
+    allowfullscreen
+  ></iframe>
+</div>
+</div>
+</div>
+</div>
+
+<div class="p-4" style="background-color:#cfc9c0">
+<div class="container text-center p-4" style="border-style: solid;">
+  <div class="row">
+    <div class="col">
+      
+      <a href="{% url 'addStock' %}" class="a" style="text-decoration:none; color: black;">View Stock</a>
+    </div>
+    <div class="col">
+      <a href="{% url 'converter' %}" class= "a" style="text-decoration: none;color: black;">Currency Converter</a>
+    </div>
+    <div class="col">
+      <a href="{% url 'visualize' %}"" class="a" style="text-decoration: none;color: black;">Visualization</a>
+    </div>
+  </div>
+</div>
+</div>
+<!-- {% if ticker %}
+	{{ ticker }}
+{% endif %}
+
+{% if api %}
+	{% if api == "Error..." %}
+		There was a problem,please try again...
+	{% else %} -->
+
+<!-- <h1>{{api.companyName}}</h1>
+
+<table class="table table-hover table-bordered" style="background-color:#A27B5C;">
+	  	<thead class="table-active">
+	  		<tr>
+	  			<th scope="col">companyName</th>
+	  			<th scope="col">latestPrice</th>
+	  			<th scope="col">previousClose</th>
+	  			<th scope="col">marketCap</th>
+	  			<th scope="col">ytdChange</th>
+	  			<th scope="col">week52High</th>
+	  			<th scope="col">week52Low</th>
+	  			<th scope="col">latestTime</th>
+	  		</tr>
+	  	</thead>
+  <tbody>
+    <tr>
+      <th scope="row">{{api.companyName}}</th>
+      <td class="table-active">${{api.latestPrice}}</td>
+      <td>{{api.previousClose}}</td>
+      <td>{{api.marketCap}}</td>
+      <td>{{api.ytdChange}}</td>
+      <td>{{api.week52High}}</td>
+      <td>{{api.week52Low}}</td>
+      <td>{{api.latestTime}}</td>
+    </tr>
+
+  </tbody>
+</table> -->
+
+<!-- 	{% endif %}
+{% endif %}
+ -->
+{% endblock %}

@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+{% block content %}
+<style>
+    .div{
+        background-color:#0e1117;
+    }
+    .add{
+        margin-top: 40px;
+        margin-bottom: 60px;
+    }
+</style>
+{% load static %}
+<div class="container add">
+<h1>View Stock</h1>
+
+<form action="{% url 'addStock' %}"class="d-flex" role="search" method="POST">
+    {% csrf_token %}
+    <input class="form-control me-2" type="search" placeholder="Add Stock to your portfolio..." name="ticker" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Add Stock</button>
+ </form>
+<br/>
+
+<table class="table table-hover table-bordered" style="background-color:#A27B5C;"
+>
+        <thead class="table-active">
+            <tr>
+                <th scope="col">companyName</th>
+                <th scope="col">latestPrice</th>
+                <th scope="col">previousClose</th>
+                <th scope="col">marketCap</th>
+                <th scope="col">ytdChange</th>
+                <th scope="col">week52High</th>
+                <th scope="col">week52Low</th>
+                <th scope="col">latestTime</th>                
+            </tr>
+        </thead>
+  <tbody>
+
+{% for item_list in output %}
+    <tr>
+      <th scope="row">{{ item_list.companyName }}</th>
+      <td class="table-active">${{item_list.latestPrice}}</td>
+      <td>${{item_list.previousClose}}</td>
+      <td class="table-active">${{item_list.marketCap}}</td>
+      <td>{{item_list.ytdChange}}%</td>
+      <td class="table-active">${{item_list.week52High}}</td>
+      <td>${{item_list.week52Low}}</td>
+      <td class="table-active">{{item_list.latestTime}}</td>
+    </tr>
+{% endfor %}
+  </tbody>
+</table>
+
+{% if ticker %}
+
+{% for item in ticker %}
+    <a href="{% url 'delete' item.id %}" class="btn btn-danger">
+    Delete {{ item }}</a> &nbsp;&nbsp;&nbsp;
+{% endfor %}
+
+{% else %}
+<h2>You don't have any stocks...</h2>
+{% endif %}
+</div>
+{% endblock %}
